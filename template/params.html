@@ -1,0 +1,81 @@
+<%include file="header-jquery.html" />
+<script type="text/javascript">
+<%include file="js/createlinkedslider.js" />
+</script>
+
+<p>
+
+  You can set the parameters for the rigid motion : translation <font color=blue> <i>tx</i></font>, <font color=blue> <i>ty</i> </font> and the rotation <font color=blue> <i>theta</i></font>.
+  <br/>
+
+
+</p>
+
+<form action="${app.base_url + 'wait'}" method="get">
+    <input type="hidden" name="key" value="${app.key}">
+  <div class="action">
+	 <ul>
+	   <li>
+	        <!-- code for slider -->
+	        <div style="float:left;padding-right:25px">
+		        <label for="tx">translation along x axis, <font color=blue><i>tx</i></font> : </label>
+		         <input type="text" style="font-family:monospace;text-align:right"
+		            size="4" id="tx" name="tx" value="0.0" />
+	        </div>
+	        <div id="tx_slider" name="tx_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+	        <script type="text/javascript">
+	        // Turn DIV slider into a slider linked to scale
+	        $(document).ready(function() {
+	              createLinkedSlider('#tx', '#tx_slider', 0, 1, 0.1);
+	        });
+	        </script>
+	        <div style="clear:both"> </div>
+	        <!-- end of code for slider -->
+	    </li>
+	    <li>
+		     <!-- code for slider -->
+		     <div style="float:left;padding-right:25px">
+		     <label for="ty">translation along y axis, <font color=blue><i>ty</i></font> : </label>
+		      <input type="text" style="font-family:monospace;text-align:right"
+		         size="4" id="ty" name="ty" value="0.0" />
+		     </div>
+		     <div id="ty_slider" name="ty_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+		     <script type="text/javascript">
+		     // Turn DIV slider into a slider linked to scale
+		     $(document).ready(function() {
+		           createLinkedSlider('#ty', '#ty_slider', 0, 1, 0.1);
+		     });
+		     </script>
+		     <div style="clear:both"> </div>
+		     <!-- end of code for slider -->
+ 		</li>
+ 		<li>
+		     <!-- code for slider -->
+		     <div style="float:left;padding-right:25px">
+		     <label for="theta">rotation angle, <font color=blue><i>theta</i></font> :  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+		      <input type="text" style="font-family:monospace;text-align:right"
+		         size="4" id="theta" name="theta" value="0.0" />
+		     </div>
+		     <div id="theta_slider" name="theta_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+		     <script type="text/javascript">
+		     // Turn DIV slider into a slider linked to scale
+		     $(document).ready(function() {
+		           createLinkedSlider('#theta', '#theta_slider', 0, 6.28, 0.01);
+		     });
+		     </script>
+		     <div style="clear:both"> </div>
+		     <!-- end of code for slider -->
+ 		</li>
+     </ul>
+    <input type="submit" value="run" />
+  </div>
+</form>
+
+
+<hr />
+
+<div>
+  <img src="${app.work_url + 'input_0.png'}" alt="" />
+</div>
+
+<%include file="footer.html" />
